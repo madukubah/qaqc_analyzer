@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Sale Mining',
+    'name': 'Mining Analyzer',
     'version': '1.0',
     'author': 'Technoindo.com',
-    'category': 'Sales Management',
+    'category': 'Mining Management',
     'depends': [
-        'sale_contract',
-        'shipping',
-        'sale_qaqc',
+        'mining_production',
     ],
     'data': [
         'views/menu.xml',
-        'views/qaqc_coa.xml',
+        'wizard/mining_analyzer_ritase.xml',
     ],
     'qweb': [
         # 'static/src/xml/cashback_templates.xml',
