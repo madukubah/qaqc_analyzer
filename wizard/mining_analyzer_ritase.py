@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 from calendar import monthrange
 _logger = logging.getLogger(__name__)
 
-class ProductionWatertruckReport(models.TransientModel):
+class MiningAnalyzerRitase(models.TransientModel):
     _name = 'mining.analyzer.ritase'
 
     @api.model

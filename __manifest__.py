@@ -11,6 +11,7 @@
     'data': [
         'views/menu.xml',
         'wizard/mining_analyzer_ritase.xml',
+        "wizard/mining_analyzer_hourmeter.xml",
     ],
     'qweb': [
         # 'static/src/xml/cashback_templates.xml',
