@@ -39,14 +39,16 @@ class MiningAnalyzerHourmeter(models.TransientModel):
                     if vehicle_losstimes :
                         if round( hourmeter_logs[ ind-1 ].end, 2 ) != round( vehicle_losstimes[0].start, 2 ):
                             message += "["+vehicle.name+"] Hourmeter and Losstime didn`t match at "+hourmeter_logs[ ind-1 ].date+"("+str( hourmeter_logs[ ind-1 ].end )+") to "+vehicle_losstimes[0].date+"("+str( vehicle_losstimes[0].start )+") \n"
+
+                        for j in range( len( vehicle_losstimes ) -1 ):
+                            if j == 0 : continue
+                            if round( vehicle_losstimes[ j-1 ].end, 2 ) != round( vehicle_losstimes[ j ].start, 2 ) :
+                                message += "["+vehicle.name+"] Losstime didn`t match at "+vehicle_losstimes[ j-1 ].date+"("+str( vehicle_losstimes[ j-1 ].end )+") to "+vehicle_losstimes[ j ].date+"("+str( vehicle_losstimes[ j ].start )+") \n"
+                                
                         j_end = len( vehicle_losstimes ) - 1
                         if round( vehicle_losstimes[ j_end ].end, 2 ) != round( hourmeter_logs[ ind ].start, 2 ) :
                             message += "["+vehicle.name+"] Losstime and Hourmeter didn`t match at "+vehicle_losstimes[ j_end ].date+"("+str( vehicle_losstimes[ j_end ].end )+") to "+hourmeter_logs[ ind ].date+"("+str( hourmeter_logs[ ind ].start )+") \n"
-                    for j in range( len( vehicle_losstimes ) -1 ):
-                        if j == 0 : continue
-                        if round( vehicle_losstimes[ j-1 ].end, 2 ) != round( vehicle_losstimes[ j ].start, 2 ) :
-                            message += "["+vehicle.name+"] Losstime didn`t match at "+vehicle_losstimes[ j-1 ].date+"("+str( vehicle_losstimes[ j-1 ].end )+") to "+vehicle_losstimes[ j ].date+"("+str( vehicle_losstimes[ j ].start )+") \n"
-
+                    
                     if not vehicle_losstimes :  
                         message += "["+vehicle.name+"] Hourmeter didn`t match at "+hourmeter_logs[ ind-1 ].date+"("+str( hourmeter_logs[ ind-1 ].end )+") to "+hourmeter_logs[ ind ].date+"("+str( hourmeter_logs[ ind ].start )+") \n"
             
