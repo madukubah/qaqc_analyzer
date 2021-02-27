@@ -36,7 +36,8 @@ class MiningAnalyzerHourmeter(models.TransientModel):
                     message += "["+hourmeter_logs[ ind ].name+"] ["+hourmeter_logs[ ind ].vehicle_id.name+"] not in state Ready For Use \n"
 
                 driver_name = hourmeter_logs[ ind ].driver_id.name
-                if driver_name.find("[") == -1:
+                find_driver = self.env['fleet.driver'].search( [ ( "partner_id", "=", hourmeter_logs[ ind ].driver_id.id ) ] )
+                if not find_driver :
                     message += "["+hourmeter_logs[ ind ].name+"] ["+driver_name+"] doesn`t register on driver table \n"
 
                 if hourmeter_logs[ ind ].value > 20 :
