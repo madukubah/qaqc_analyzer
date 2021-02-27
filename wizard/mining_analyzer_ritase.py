@@ -27,8 +27,8 @@ class MiningAnalyzerRitase(models.TransientModel):
         ritase_orders = self.env['production.ritase.order'].search([ ( 'date', '>=', self.start_date ), ( 'date', '<=', self.end_date ) ], order="date asc, shift asc")
         message = ""
         for ritase_order in ritase_orders:
-            for counter in ritase_order.counter_ids:
-                counter.repair()
+            # for counter in ritase_order.counter_ids:
+            #     counter.repair()
 
             if ritase_order.product_id.id not in self.production_config_id.other_product_ids.ids:
                 if ritase_order.product_uom_qty == 0:
@@ -39,10 +39,10 @@ class MiningAnalyzerRitase(models.TransientModel):
                     message += "Only Dump Truck allowed to fill ritase form ["+ritase_order.name+"]. \n"
                     # raise UserError(_('Only Dump Truck allowed to fill ritase form [%s]') %( ritase_order.name ) )
         
-        # if message == "" :
-        #     raise UserError(_('It Seems Okay') )
-        # else :
-        #     raise UserError(_( message ) )
+        if message == "" :
+            raise UserError(_('It Seems Okay') )
+        else :
+            raise UserError(_( message ) )
 
         return True    
         
