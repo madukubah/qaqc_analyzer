@@ -35,6 +35,9 @@ class MiningAnalyzerRitase(models.TransientModel):
                     message += "Ritase ["+ ritase_order.name +"] tonnase cannot be 0! \n"
                     # raise UserError(_('Ritase [%s] tonnase cannot be 0! ') %( ritase_order.name ) )
             for counter in ritase_order.counter_ids:
+                driver_name = counter.driver_id.name
+                if driver_name.find("[") == -1:
+                    message += "["+ritase_order.name+"] ["+driver_name+"] doesn`t register on driver table \n"
                 if self.production_config_id.rit_vehicle_tag_id.id not in counter.vehicle_id.tag_ids.ids :
                     message += "Only Dump Truck allowed to fill ritase form ["+ritase_order.name+"]. \n"
                     # raise UserError(_('Only Dump Truck allowed to fill ritase form [%s]') %( ritase_order.name ) )

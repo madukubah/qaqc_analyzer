@@ -31,6 +31,10 @@ class MiningAnalyzerHourmeter(models.TransientModel):
             hourmeter_logs = self.env['production.vehicle.hourmeter.log'].search([ ( 'date', '>=', self.start_date ), ( 'date', '<=', self.end_date ), ( 'vehicle_id', '=', vehicle.id ) ], order="date asc, start_datetime asc")
             # for ind, hourmeter_log in enumerate( hourmeter_logs ):
             for ind in range( len( hourmeter_logs ) ):
+                driver_name = hourmeter_logs[ ind ].driver_id.name
+                if driver_name.find("[") == -1:
+                    message += "["+hourmeter_logs[ ind ].name+"] ["+driver_name+"] doesn`t register on driver table \n"
+
                 if hourmeter_logs[ ind ].value > 20 :
                     message += "["+vehicle.name+"] found anomaly at "+hourmeter_logs[ ind ].date+" \n"
                 if ind == 0 : continue
