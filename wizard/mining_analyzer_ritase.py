@@ -35,6 +35,10 @@ class MiningAnalyzerRitase(models.TransientModel):
                     message += "Ritase ["+ ritase_order.name +"] tonnase cannot be 0! \n"
                     # raise UserError(_('Ritase [%s] tonnase cannot be 0! ') %( ritase_order.name ) )
             for counter in ritase_order.counter_ids:
+                vehicle_state_id = counter.vehicle_id.state_id.id
+                if vehicle_state_id != 1 :
+                    message += "["+ritase_order.name+"] ["+counter.vehicle_id.name+"] not in state Ready For Use \n"
+
                 driver_name = counter.driver_id.name
                 if driver_name.find("[") == -1:
                     message += "["+ritase_order.name+"] ["+driver_name+"] doesn`t register on driver table \n"
