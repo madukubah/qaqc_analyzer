@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Mining Analyzer',
+    'name': 'QAQC Analyzer',
     'version': '1.0',
     'author': 'Technoindo.com',
     'category': 'Mining Management',
     'depends': [
-        'mining_production',
+        'mining_qaqc',
     ],
     'data': [
         'views/menu.xml',
-        'wizard/mining_analyzer_ritase.xml',
-        "wizard/mining_analyzer_hourmeter.xml",
+        "wizard/qaqc_analyzer_pile_compute.xml",
     ],
     'qweb': [
         # 'static/src/xml/cashback_templates.xml',

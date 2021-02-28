@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="mining_analyzer_ritase_form_view" model="ir.ui.view">
-            <field name="name">sr.mining.analyzer.ritase.form.view</field>
-            <field name="model">mining.analyzer.ritase</field>
+        <record id="qaqc_analyzer_pile_compute_form_view" model="ir.ui.view">
+            <field name="name">sr.qaqc.analyzer.pile.compute.form.view</field>
+            <field name="model">qaqc.analyzer.pile.compute</field>
             <field name="arch" type="xml">
-                <form string="Ritase Analizer">
+                <form string="Assay Lot Reloader">
                     <group>
                         <p>
-                            Analyze your data to find input fault or anomaly
+                            Reload All Lots Qty
                         </p>
                     </group>
                     <group>
                         <group>
-                            <field name="production_config_id" invisible="1" />
                             <field name="start_date"/>
                         </group>
                         <group>
@@ -21,7 +20,7 @@
                         </group>
                     </group>
                     <footer>
-                        <button name="action_analyze" string="Analyze" class="oe_highlight"
+                        <button name="action_compute" string="Compute" class="oe_highlight"
                                 type="object"/>
                         Or
                         <button string="Cancel" class="btn-default" special="cancel"/>
@@ -30,18 +29,18 @@
             </field>
         </record>
 
-        <record id="action_mining_analyzer_ritase_wizard" model="ir.actions.act_window">
-            <field name="name">Ritase Analizer</field>
-            <field name="res_model">mining.analyzer.ritase</field>
+        <record id="action_qaqc_analyzer_pile_compute_wizard" model="ir.actions.act_window">
+            <field name="name">Assay Lot Reloader</field>
+            <field name="res_model">qaqc.analyzer.pile.compute</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <menuitem id="menu_mining_analyzer_ritase_wizard"
-                  name="Ritase Analizer"
-                  action="action_mining_analyzer_ritase_wizard"
-                  parent="menu_mining_analyzer"
-                  sequence="2"/>
+        <menuitem id="menu_qaqc_analyzer_pile_compute_wizard"
+                  name="Assay Lot Reloader"
+                  action="action_qaqc_analyzer_pile_compute_wizard"
+                  parent="menu_qaqc_analyzer"
+                  sequence="1"/>
     </data>
 </odoo>

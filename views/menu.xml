@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="menu_mining_analyzer" name="Analyzer" sequence="99" 
-			parent="mining_production.mining_production_top"/>
+    <menuitem id="menu_qaqc_analyzer" name="Analyzer" sequence="99" 
+			parent="mining_qaqc.qaqc_top"/>
     
 </odoo>

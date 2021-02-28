@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-from . import mining_analyzer_ritase
-from . import mining_analyzer_hourmeter
+from . import qaqc_analyzer_pile_compute
+# from . import mining_analyzer_hourmeter
