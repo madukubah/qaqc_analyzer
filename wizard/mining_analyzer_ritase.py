@@ -40,9 +40,10 @@ class MiningAnalyzerRitase(models.TransientModel):
                     message += "["+ritase_order.name+"] ["+counter.vehicle_id.name+"] not in state Ready For Use \n"
 
                 driver_name = counter.driver_id.name
-                find_driver = self.env['fleet.driver'].search( [ ( "partner_id", "=", counter.driver_id.id ) ] )
+                find_driver = self.env['fleet.driver'].sudo().search( [ ( "partner_id", "=", counter.driver_id.id ) ] )
                 if not find_driver :
                     message += "["+ritase_order.name+"] ["+driver_name+"] doesn`t register on driver table \n"
+                    
                 if self.production_config_id.rit_vehicle_tag_id.id not in counter.vehicle_id.tag_ids.ids :
                     message += "Only Dump Truck allowed to fill ritase form ["+ritase_order.name+"]. \n"
                     # raise UserError(_('Only Dump Truck allowed to fill ritase form [%s]') %( ritase_order.name ) )
