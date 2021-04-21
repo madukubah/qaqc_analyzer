@@ -41,6 +41,7 @@
                   name="Assay Lot Reloader"
                   action="action_qaqc_analyzer_pile_compute_wizard"
                   parent="menu_qaqc_analyzer"
+                  groups="mining_qaqc.qaqc_group_user"
                   sequence="1"/>
     </data>
 </odoo>

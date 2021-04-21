@@ -3,7 +3,7 @@
 
     <menuitem id="menu_qaqc_analyzer" name="Analyzer" sequence="99" 
 			parent="mining_qaqc.qaqc_top"
-            groups="mining_qaqc.qaqc_group_manager"
+            groups="mining_qaqc.qaqc_group_user"
             />
     
 </odoo>
